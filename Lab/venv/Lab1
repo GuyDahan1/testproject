@@ -1,0 +1,28 @@
+def sum_recursion(number):
+    if (number == 1):
+        return 1
+    return number + sum_recursion(number - 1)
+
+
+def Fibaonacci(i):
+    if (i <= 2):
+        return 1
+    return Fibaonacci(i - 1) + Fibaonacci(i - 2)
+
+
+def digits(i):
+    if (i < 10):
+        return 1
+    return digits(i / 10) + 1
+
+
+def rec_digitcheck(digit, number):
+    if number <= 0:
+        return 0
+    elif digit == number % 10:
+        return rec_digitcheck(digit, number // 10) + 1
+    else:
+        return rec_digitcheck(digit, number // 10) + 0
+
+
+print(rec_digitcheck(2, 321414122222))
