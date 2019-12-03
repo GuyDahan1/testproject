@@ -1,11 +1,6 @@
-class lecturer:
-    def __init__(self,nl,pl,proffl,passl):
-        self.name_lecturer=nl
-        self.password_lecturer=pl
-        self.profession_lecturer=proffl
-        self.password_lecturer=passl
+from StudentClass import student
+class lecturer(student):
+    def newStudent(self,ns,ps,proffs,passs):
+        """Creates new student"""
+        return student(ns,ps,proffs,passs)
 
-    name_lecturer = ""
-    phone_lecturer = ""
-    profession_lecturer = ""
-    password_lecturer = ""

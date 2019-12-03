@@ -1,10 +1,10 @@
 class student:
-    def __init__(self,ns,ps,proffs,passs):
-        self.name_student=ns
-        self.password_student=passs
-        self.phone_student=ps
-        self.profession_student=proffs
-    name_student = ""
-    phone_student = ""
-    profession_student = ""
-    password_student = ""
+    def __init__(self,name,phone,proffs,passs):
+        self.name=name
+        self.password=passs
+        self.phone=phone
+        self.profession=proffs
+    def changePassword(self,newpass):
+        self.password=newpass
+    def changePhone(self,newPhone):
+        self.phone=newPhone
