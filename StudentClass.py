@@ -4,7 +4,5 @@ class student:
         self.password=passs
         self.phone=phone
         self.profession=proffs
-    def changePassword(self,newpass):
-        self.password=newpass
-    def changePhone(self,newPhone):
-        self.phone=newPhone
+    def __str__(self):
+        return "{0} {1} {2} {3}".format(self.name,self.profession,self.phone,self.password)

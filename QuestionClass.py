@@ -1,12 +1,15 @@
+from CourseClass import course
+from TestClass import test
 class question:
-    def __init__(self, qc, mt, st, dif, sult, yr, smes, dl, Format, te):
+    def __init__(self,course,test, qc, mt, st, dif, sult, Format, te):
+        self.course=course
+        self.test=test
         self.question_code = qc
         self.main_topic = mt
         self.sub_theme = st
         self.difficulty = dif
         self.solution_type = sult
-        self.year = yr
-        self.semester = smes
-        self.deadline = dl
         self.format = Format
         self.test_exams = te
+    def __str__(self):
+        return '{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12}'.format(self.course.name_course,self.course.year,self.course.semester,self.test.year,self.test.semester,self.test.deadline,self.question_code,self.main_topic,self.sub_theme,self.difficulty,self.solution_type,self.format,self.test_exams)
