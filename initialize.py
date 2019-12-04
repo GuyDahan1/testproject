@@ -1,3 +1,5 @@
+"""First startup of the database"""
+
 from CordinatorClass import cordinator
 from LecturerClass import lecturer
 from StudentClass import student
