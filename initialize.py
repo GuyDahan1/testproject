@@ -1,11 +1,11 @@
 """First startup of the database"""
 
-from CordinatorClass import cordinator
-from LecturerClass import lecturer
-from StudentClass import student
-from CourseClass import course
-from TestClass import test
-from QuestionClass import question
+from Class.CordinatorClass import cordinator
+from Class.LecturerClass import lecturer
+from Class.StudentClass import student
+from Class.CourseClass import course
+from Class.TestClass import test
+from Class.QuestionClass import question
 def cordinatorCreate():
     """Function returns new cordinator"""
     name=input("Enter Cordinator name\n")
@@ -36,10 +36,10 @@ def courseCreate():
     year=input("Enter Course year\n")
     semester=input("Enter Course semester\n")
     return course(name,year,semester)
-def testCreate():
+def testCreate(course):
     """Function returns new test"""
-    year=input("Enter Test year\n")
-    semester=input("Enter Test semester\n")
+    year=course.year
+    semester=course.semester
     deadline=input("Enter Test deadline\n")
     return test(year,semester,deadline)
 def questionCreate(course,test):
@@ -65,20 +65,20 @@ def startup(courseList,testList,questionList):
         courseList.append(courseCreate())
         while flag2:
             print("Creating new Test")
-            testList.append(testCreate())
+            testList.append(testCreate(courseList[counter1]))
             while flag3:
                 print("Creating new questions")
                 questionList.append(questionCreate(courseList[counter1],testList[counter2]))
                 print("To add another question to this course and test enter 1")
-                if input()!=1:
+                if input()!='1':
                     flag3=False
             counter2+=1
             print("To add another Test to this course enter 1")
-            if input() != 1:
+            if input() != '1':
                 flag2 = False
         counter1+=1
         print("To add another Course enter 1")
-        if input() != 1:
+        if input() != '1':
             flag1 = False
 
 def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,questionList):
@@ -86,9 +86,9 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     cordi_counter=0
     lectur_counter=0
     student_counter=0
-    file_cordi = open("Cordinators.txt",'w')
-    file_lectur = open("Lecturers.txt", 'w')
-    file_student = open("Students.txt", 'w')
+    file_cordi = open("Data\Cordinators.txt",'w')
+    file_lectur = open("Data\Lecturers.txt", 'w')
+    file_student = open("Data\Students.txt", 'w')
     for x in cordinatorList:
         file_cordi.write(str(x))
         cordi_counter+=1
@@ -101,13 +101,13 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     file_student.close()
     file_lectur.close()
     file_cordi.close()
-    file_course=open("Courses.txt",'w')
+    file_course=open("Data\Courses.txt",'w')
     course_counter=0
     for x in courseList:
         file_course.write(str(x))
         course_counter+=1
     file_course.close()
-    file_questions=open("Questions.txt",'w')
+    file_questions=open("Data\Questions.txt",'w')
     question_counter=0
     for x in questionList:
         file_questions.write(str(x))

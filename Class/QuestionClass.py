@@ -1,5 +1,5 @@
-from CourseClass import course
-from TestClass import test
+from Class.CourseClass import course
+from Class.TestClass import test
 class question:
     def __init__(self,course,test, qc, mt, st, dif, sult, Format, te):
         self.course=course
