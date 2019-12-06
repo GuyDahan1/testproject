@@ -32,7 +32,7 @@ def imp_courses(courlist):
         courlist.append(course(temp[0],temp[1],temp[2]))
     course_file.close()
 def imp_q(qlist):
-    q_file=open("Data\Students.txt",'r')
+    q_file=open("Data\Questions.txt",'r')
     for i in q_file:
         temp=i.split()
         qlist.append(question(course(temp[0],temp[1],temp[2]),test(temp[3],temp[4],temp[5]),temp[6],temp[7],temp[8],temp[9],temp[10],temp[11],temp[12]))
@@ -66,10 +66,10 @@ def new_question_to_course(courseList):
 def update_student_plus(studentList):
     flag1=True
     while flag1:
-        name = input("Enter Lecturer name\n")
+        name = input("Enter name\n")
         for x in studentList:
             if name==x.getName():
-                flag2=input("1.Change password\n2.Change phone")
+                flag2=input("1.Change password\n2.Change phone\n")
                 if flag2=='1':
                     x.setPassword(input("Enter new password\n"))
                     return

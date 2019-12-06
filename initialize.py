@@ -86,9 +86,9 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     cordi_counter=0
     lectur_counter=0
     student_counter=0
-    file_cordi = open("Data\Cordinators.txt",'a')
-    file_lectur = open("Data\Lecturers.txt", 'a')
-    file_student = open("Data\Students.txt", 'a')
+    file_cordi = open("Data\Cordinators.txt",'w')
+    file_lectur = open("Data\Lecturers.txt", 'w')
+    file_student = open("Data\Students.txt", 'w')
     for x in cordinatorList:
         file_cordi.write(str(x)+'\n')
         cordi_counter+=1
@@ -101,13 +101,13 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     file_student.close()
     file_lectur.close()
     file_cordi.close()
-    file_course=open("Data\Courses.txt",'a')
+    file_course=open("Data\Courses.txt",'w')
     course_counter=0
     for x in courseList:
         file_course.write(str(x)+'\n')
         course_counter+=1
     file_course.close()
-    file_questions=open("Data\Questions.txt",'a')
+    file_questions=open("Data\Questions.txt",'w')
     question_counter=0
     for x in questionList:
         file_questions.write(str(x)+'\n')
