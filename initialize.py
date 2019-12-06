@@ -90,13 +90,13 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     file_lectur = open("Data\Lecturers.txt", 'w')
     file_student = open("Data\Students.txt", 'w')
     for x in cordinatorList:
-        file_cordi.write(str(x))
+        file_cordi.write(str(x)+'\n')
         cordi_counter+=1
     for x in lecturerList:
-        file_lectur.write(str(x))
+        file_lectur.write(str(x)+'\n')
         lectur_counter+=1
     for x in studentList:
-        file_student.write(str(x))
+        file_student.write(str(x)+'\n')
         student_counter+=1
     file_student.close()
     file_lectur.close()
@@ -104,13 +104,13 @@ def saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,ques
     file_course=open("Data\Courses.txt",'w')
     course_counter=0
     for x in courseList:
-        file_course.write(str(x))
+        file_course.write(str(x)+'\n')
         course_counter+=1
     file_course.close()
     file_questions=open("Data\Questions.txt",'w')
     question_counter=0
     for x in questionList:
-        file_questions.write(str(x))
+        file_questions.write(str(x)+'\n')
         question_counter+=1
     file_questions.close()
     file_config=open("Config.txt",'w')
@@ -123,8 +123,7 @@ def printMenu():
     2.Add new Lecturer
     3.Add new Student
     4.Add new Course
-    5.Save all
-    6.Quit""")
+    5.Save and Quit""")
 def starting():
     cordinatorList=[]
     lecturerList=[]
@@ -145,10 +144,9 @@ def starting():
         elif flag==4:
             startup(courseList,testList,questionList)
         elif flag==5:
-            saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList, questionList)
-        elif flag==6:
             flag2=False
+            saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList, questionList)
 
 
 
-starting()
+
