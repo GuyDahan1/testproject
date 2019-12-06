@@ -11,19 +11,19 @@ def imp_cor(corlist):
     cordi_file = open("Data\Cordinators.txt", 'r')
     for i in cordi_file:
         temp=i.split()
-        corlist.append(cordinator(temp[0]+temp[1],temp[2],temp[3],temp[4]))
+        corlist.append(cordinator(temp[0]+' '+temp[1],temp[2],temp[3],temp[4]))
     cordi_file.close()
 def imp_lecturers(leclist):
     lec_file=open("Data\Lecturers.txt",'r')
     for i in lec_file:
         temp=i.split()
-        leclist.append(lecturer(temp[0] + temp[1], temp[2], temp[3], temp[4]))
+        leclist.append(lecturer(temp[0] +' '+ temp[1], temp[2], temp[3], temp[4]))
     lec_file.close()
 def imp_students(stdlist):
     std_file=open("Data\Students.txt",'r')
     for i in std_file:
         temp=i.split()
-        stdlist.append(student(temp[0] + temp[1], temp[2], temp[3], temp[4]))
+        stdlist.append(student(temp[0] +' '+ temp[1], temp[2], temp[3], temp[4]))
     std_file.close()
 def imp_courses(courlist):
     course_file=open("Data\Courses.txt",'r')
