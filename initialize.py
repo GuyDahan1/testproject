@@ -8,7 +8,7 @@ from Class.TestClass import test
 from Class.QuestionClass import question
 def cordinatorCreate():
     """Function returns new cordinator"""
-    name=input("Enter Cordinator name\n")
+    name=input("Enter Cordinator name(Full name,First Last)\n")
     phone=input("Enter Phone number\n")
     proffesion=input("Enter proffesion\n")
     password=input("Enter Password\n")
@@ -16,7 +16,7 @@ def cordinatorCreate():
     return newCordinator
 def lecturerCreate():
     """Function returns new lecturer"""
-    name=input("Enter Lecturer name\n")
+    name=input("Enter Lecturer name(Full name,First Last)\n")
     phone=input("Enter Phone number\n")
     proffesion=input("Enter proffesion\n")
     password=input("Enter Password\n")
@@ -24,7 +24,7 @@ def lecturerCreate():
     return newLecturer
 def studentCreate():
     """Function returns new student"""
-    name=input("Enter Student name\n")
+    name=input("Enter Student name(Full name,First Last)\n")
     phone=input("Enter Phone number\n")
     proffesion=input("Enter proffesion\n")
     password=input("Enter Password\n")
