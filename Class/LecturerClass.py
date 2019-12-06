@@ -3,8 +3,5 @@ class lecturer(student):
     def newStudent(self,ns,ps,proffs,passs):
         """Creates new student"""
         return student(ns,ps,proffs,passs)
-    def changePassword(self,newpass):
-        self.password=newpass
-    def changePhone(self,newPhone):
-        self.phone=newPhone
+
 

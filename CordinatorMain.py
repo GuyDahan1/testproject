@@ -38,6 +38,47 @@ def imp_q(qlist):
         qlist.append(question(course(temp[0],temp[1],temp[2]),test(temp[3],temp[4],temp[5]),temp[6],temp[7],temp[8],temp[9],temp[10],temp[11],temp[12]))
     q_file.close()
 
+def print_cordinator_menu():
+    print("""Cordinator Menu:
+    1.Add new course
+    2.Add new question to an existing course
+    3.Update Cordinator info
+    4.Update Lecturer info
+    5.Update Student info
+    6.New Cordinator
+    7.New Lecturer
+    8.New Student
+    9.Save and Quit""")
+
+def new_question_to_course(courseList):
+    flag1=True
+    while flag1:
+        name=input("Enter course name\n")
+        for x in courseList:
+            if name==x.getName():
+                newtest=testCreate(x)
+                return questionCreate(x,newtest)
+        print("Wrong course name\n")
+        ff=input("To try again enter 1")
+        if ff!='1':
+            flag1=False
+
+def update_student_plus(studentList):
+    flag1=True
+    while flag1:
+        name = input("Enter Lecturer name\n")
+        for x in studentList:
+            if name==x.getName():
+                flag2=input("1.Change password\n2.Change phone")
+                if flag2=='1':
+                    x.setPassword(input("Enter new password\n"))
+                    return
+                elif flag2=='2':
+                    x.setPhone(input("Enter new phone\n"))
+                    return
+        flag3=input("Name not found Try again?(1=Y)")
+        if flag3!='1':
+            flag1=False
 
 
 config_file=open("Config.txt",'r')
@@ -70,3 +111,27 @@ if config_info[4]!='0':
 if config_info[5]!='0':
     imp_q(questionList)
     print("Imported Questions")
+flag1=True
+while flag1:
+    print_cordinator_menu()
+    flag2=input()
+    if flag2=='1':
+        courseList.append(courseCreate())
+    elif flag2=='2':
+        questionList.append(new_question_to_course(courseList))
+    elif flag2=='3':
+        update_student_plus(cordinatorList)
+    elif flag2 == '4':
+        update_student_plus(lecturerList)
+    elif flag2=='5':
+        update_student_plus(studentList)
+    elif flag2=='6':
+        cordinatorList.append(cordinatorCreate())
+    elif flag2=='7':
+        lecturerList.append(lecturerCreate())
+    elif flag2=='8':
+        studentList.append(studentCreate())
+    elif flag2=='9':
+        saveToFiles(cordinatorList,lecturerList,studentList,courseList,testList,questionList)
+        flag1=False
+
