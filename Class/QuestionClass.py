@@ -17,15 +17,19 @@ class question:
         self.solution_type = sult
         self.format = Format
         self.test_exams = te
-        self.path = "pdfFileHere\{0}.pdf".format(qc)
-        test.__crop__()
+        self.path = "Class\pdfFileHere\{0}.pdf".format(qc)
+        self.pdf=None
+        #self.image = pdf2image.convert_from_path(self.path)
+
+    def getCode(self):
+        return self.question_code
+    def setPdf(self):
         self.pdf = PyPDF3.PdfFileReader(self.path, "rb")
-        self.image = pdf2image.convert_from_path(self.path)
 
     def imageToWord(self):
         docs=docx.Document()
         parg=docs.add_paragraph()
-        r=p.add_run()
+        r=parg.add_run()
         r.add_text('question number 1:\n')
         r.add_picture('exemple.png')
         docs.save('exe.docx')
@@ -40,8 +44,3 @@ class question:
                                                                                     self.sub_theme, self.difficulty,
                                                                                     self.solution_type, self.format,
                                                                                     self.test_exams, self.path)
-path=input("path\n")
-test1=test(1,1,1,path)
-course1=course(1,1,1)
-q1=question(course1,test1,112,1,1,1,1,1,1)
-q1.imageToWord()

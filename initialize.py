@@ -76,6 +76,7 @@ def startup(courseList, testList, questionList):
     flag3 = True
     counter1 = 0
     counter2 = 0
+    counter3=0
     while flag1:
         print("Creating new Course")
         courseList.append(courseCreate())
@@ -85,6 +86,10 @@ def startup(courseList, testList, questionList):
             while flag3:
                 print("Creating new questions")
                 questionList.append(questionCreate(courseList[counter1], testList[counter2]))
+                print("Cropping Question from test")
+                testList[counter2].__crop__(questionList[counter3].getCode())
+                questionList[counter3].setPdf()
+                counter3+=1
                 print("To add another question to this course and test enter 1")
                 if input() != '1':
                     flag3 = False

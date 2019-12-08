@@ -25,20 +25,19 @@ class test:
     def getPath(self):
         return self.path
 
-    def __crop__(self):
-        pagNum = int(input("Enter page number"))
-        upperX = int(input("please enter upper x cordinate"))
-        upperY = int(input("please enter upper y cordinate"))
-        lowerX = int(input("please enter lower x cordinate"))
-        lowerY = int(input("please enter lower y cordinate"))
+    def __crop__(self,name):
+        pagNum = int(input("Enter page number\n"))
+        upperX = int(input("please enter upper x cordinate\n"))
+        upperY = int(input("please enter upper y cordinate\n"))
+        lowerX = int(input("please enter lower x cordinate\n"))
+        lowerY = int(input("please enter lower y cordinate\n"))
         path = self.getPath()
         writer = PyPDF3.PdfFileWriter()
         page = self.tPdf.getPage(pagNum)
         page.cropBox.setLowerLeft((lowerX, lowerY))
         page.cropBox.setUpperRight((upperX, upperY))
         writer.addPage(page)
-        name = input("Enter question code\n")
-        path = "pdfFileHere\{0}.pdf".format(name)
+        path = "Class\pdfFileHere\{0}.pdf".format(name)
         outstream = open(path, 'wb')
         writer.write((outstream))
         outstream.close()
