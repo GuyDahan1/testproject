@@ -156,15 +156,18 @@ def starting():
     flag2 = True
     while flag2:
         printMenu()
-        flag = int(input())
-        if flag == 1:
+        flag = input()
+        if flag == '1':
             cordinatorList.append(cordinatorCreate())
-        elif flag == 2:
+        elif flag == '2':
             lecturerList.append(lecturerCreate())
-        elif flag == 3:
+        elif flag == '3':
             studentList.append(studentCreate())
-        elif flag == 4:
+        elif flag == '4':
             startup(courseList, testList, questionList)
-        elif flag == 5:
+        elif flag == '5':
             flag2 = False
             saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList, questionList)
+        else:
+            print("invaild value")
+
