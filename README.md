@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Question bank
 this project is a QUESTIONS DATABASE program.
 the program contains :
@@ -21,3 +22,8 @@ the program contains :
   * Noa Dahan
   * Ofir Ben Zaken
           
+=======
+# Question database project
+
+
+>>>>>>> OhadBranch
