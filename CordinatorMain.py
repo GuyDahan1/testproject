@@ -45,11 +45,12 @@ def imp_courses(courlist):
 def imp_q(qlist):
     q_file=open("Data\Questions.txt",'r')
     q_file = open("Data\Students.txt", 'r')
+    q_file = open("Data\Questions.txt", 'r')
     for i in q_file:
         temp = i.split()
         qlist.append(
-            question(course(temp[0], temp[1], temp[2]), test(temp[3], temp[4], temp[5]), temp[6], temp[7], temp[8],
-                     temp[9], temp[10], temp[11], temp[12]))
+            question(course(temp[0], temp[1], temp[2]), test(temp[3], temp[4], temp[5],temp[13]), temp[6], temp[7], temp[8],
+                     temp[9], temp[10], temp[11], temp[12] ))
     q_file.close()
 
 
@@ -73,7 +74,10 @@ def new_question_to_course(courseList):
         for x in courseList:
             if name == x.getName():
                 newtest = testCreate(x)
-                return questionCreate(x, newtest)
+                newQ=questionCreate(x, newtest)
+                newtest.__crop__(newQ.getCode())
+                newQ.setPdf()
+                return newQ
         print("Wrong course name\n")
         ff = input("To try again enter 1")
         if ff != '1':

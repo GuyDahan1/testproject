@@ -76,6 +76,7 @@ def startup(courseList, testList, questionList):
     flag3 = True
     counter1 = 0
     counter2 = 0
+    counter3=0
     while flag1:
         print("Creating new Course")
         courseList.append(courseCreate())
@@ -85,6 +86,10 @@ def startup(courseList, testList, questionList):
             while flag3:
                 print("Creating new questions")
                 questionList.append(questionCreate(courseList[counter1], testList[counter2]))
+                print("Cropping Question from test")
+                testList[counter2].__crop__(questionList[counter3].getCode())
+                questionList[counter3].setPdf()
+                counter3+=1
                 print("To add another question to this course and test enter 1")
                 if input() != '1':
                     flag3 = False
@@ -166,15 +171,18 @@ def starting():
     flag2 = True
     while flag2:
         printMenu()
-        flag = int(input())
-        if flag == 1:
+        flag = input()
+        if flag == '1':
             cordinatorList.append(cordinatorCreate())
-        elif flag == 2:
+        elif flag == '2':
             lecturerList.append(lecturerCreate())
-        elif flag == 3:
+        elif flag == '3':
             studentList.append(studentCreate())
-        elif flag == 4:
+        elif flag == '4':
             startup(courseList, testList, questionList)
-        elif flag == 5:
+        elif flag == '5':
             flag2 = False
             saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList, questionList)
+        else:
+            print("invaild value")
+
