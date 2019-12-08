@@ -17,7 +17,7 @@ class test:
                 path = input("Enter new path\n")
         self.tPdf = TestPdf
         self.path = Path
-        self.image = pdf2image.convert_from_path(self.path)
+        #self.image = pdf2image.convert_from_path(Path)
 
     def getPdf(self):
         return self.tPdf
@@ -38,7 +38,7 @@ class test:
         page.cropBox.setUpperRight((upperX, upperY))
         writer.addPage(page)
         name = input("Enter question code\n")
-        path = "Class\pdfFileHere\{0}.pdf".format(name)
+        path = "pdfFileHere\{0}.pdf".format(name)
         outstream = open(path, 'wb')
         writer.write((outstream))
         outstream.close()
