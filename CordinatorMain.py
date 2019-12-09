@@ -5,7 +5,7 @@ from Class.StudentClass import student
 from Class.CourseClass import course
 from Class.TestClass import test
 from Class.QuestionClass import question
-import PyPDF3
+#import PyPDF3
 
 
 
@@ -49,8 +49,8 @@ def imp_q(qlist):
     for i in q_file:
         temp = i.split()
         difflist=[]
-        for x in range(0,int(temp[14])):
-            difflist.append(temp[15+x])
+        for x in range(0,int(temp[13])):
+            difflist.append(temp[14+x])
         qlist.append(
             question(course(temp[0], temp[1], temp[2]), test(temp[3], temp[4], temp[5],temp[12]), temp[6], temp[7], temp[8],
                      difflist, temp[9], temp[10], temp[11],temp[13])

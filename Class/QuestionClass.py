@@ -1,10 +1,7 @@
 from Class.CourseClass import course
 from Class.TestClass import test
 import PyPDF3
-import pdf2image
-import docx
-import docx.shared
-
+#from pdf2image import *
 
 
 class question:
@@ -32,16 +29,15 @@ class question:
         return self.question_code
     def setPdf(self):
         self.pdf = PyPDF3.PdfFileReader(self.path, "rb")
-        self.image= pdf2image.convert_from_path(self.path)
+        #self.image= pdf2image.convert_from_path(self.path)
 
-
-    def imageToWord(self):
-        docs=docx.Document()
-        parg=docs.add_paragraph()
-        r=parg.add_run()
-        r.add_text('question number 1:\n')
-        r.add_picture('exemple.png')
-        docs.save('exe.docx')
+    # def imageToWord(self):
+    #    docs = docx.Document()
+    #   parg = docs.add_paragraph()
+    #  r = parg.add_run()
+    # r.add_text('question number 1:\n')
+    # r.add_picture('exemple.png')
+    # docs.save('exe.docx')
 
     def __str__(self):
         str1='{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}'.format(self.course.name_course,
