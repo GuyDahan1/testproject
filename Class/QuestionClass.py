@@ -8,19 +8,23 @@ import docx.shared
 
 
 class question:
-    def __init__(self, course, test, qc, mt, st, dif, sult, Format, te):
+    def __init__(self, course, test, qc, mt, st, dif, sult, Format, te,seccount):
         self.course = course
         self.test = test
         self.question_code = qc
         self.main_topic = mt
         self.sub_theme = st
-        self.difficulty = dif
         self.solution_type = sult
         self.format = Format
         self.test_exams = te
+        self.section_diff_list=dif
+        self.section_count=seccount
+        self.difficulty=0
+        for x in self.section_diff_list:
+            self.difficulty+=int(x)
         self.path = "Class\pdfFileHere\{0}.pdf".format(qc)
         self.pdf=None
-        #self.image = pdf2image.convert_from_path(self.path)
+        self.image =None
 
     #def pdfToString(self):
 
@@ -28,6 +32,7 @@ class question:
         return self.question_code
     def setPdf(self):
         self.pdf = PyPDF3.PdfFileReader(self.path, "rb")
+        self.image= pdf2image.convert_from_path(self.path)
 
 
     def imageToWord(self):
@@ -39,12 +44,15 @@ class question:
         docs.save('exe.docx')
 
     def __str__(self):
-        return '{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}'.format(self.course.name_course,
-                                                                                    self.course.year,
-                                                                                    self.course.semester,
-                                                                                    self.test.year, self.test.semester,
-                                                                                    self.test.deadline,
-                                                                                    self.question_code, self.main_topic,
-                                                                                    self.sub_theme, self.difficulty,
-                                                                                    self.solution_type, self.format,
-                                                                                    self.test_exams, self.path)
+        str1='{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}'.format(self.course.name_course,
+                                                                             self.course.year,
+                                                                             self.course.semester,
+                                                                             self.test.year, self.test.semester,
+                                                                             self.test.deadline,
+                                                                             self.question_code, self.main_topic,
+                                                                             self.sub_theme,
+                                                                             self.solution_type, self.format,
+                                                                             self.test_exams, self.path,self.section_count)
+        for x in self.section_diff_list:
+            str1=str1+' '+x
+        return str1

@@ -62,11 +62,14 @@ def questionCreate(course, test):
     question_code = input("Enter question code\n")
     main_topic = input("Enter main topic\n")
     sub_theme = input("Enter sub topic\n")
-    difficulty = input("Enter difficulty\n")
+    sectionCount=input("Enter how many sections\n")
+    difficulty=[]
+    for i in range(0,int(sectionCount)):
+        difficulty.append(input("Enter difficulty\n"))
     solution_type = input("Enter solution type\n")
     format = input("Enter question format\n")
     test_exams = input("Test/Exam\n")
-    return question(course, test, question_code, main_topic, sub_theme, difficulty, solution_type, format, test_exams)
+    return question(course, test, question_code, main_topic, sub_theme, difficulty, solution_type, format, test_exams,sectionCount)
 
 
 def startup(courseList, testList, questionList):

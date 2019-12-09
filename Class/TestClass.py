@@ -14,7 +14,7 @@ class test:
                 break
             except:
                 print("File not found")
-                path = input("Enter new path\n")
+                Path = input("Enter new path\n")
         self.tPdf = TestPdf
         self.path = Path
         #self.image = pdf2image.convert_from_path(Path)
