@@ -6,7 +6,7 @@ the program contains :
 * 1.QUESTIONS DATABASE
 * 2.USERS DATABASE
 * 3.CLASSES:
-  * Qestion
+  * Question
   * test
   * Student
   * Lecturer
