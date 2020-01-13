@@ -1,0 +1,8 @@
+2020-01-13 11:43:36,197 - Cordinator_create initialized
+2020-01-13 11:43:43,826 - Cordinator created ,Runtime=7.63 Seconds
+2020-01-13 11:43:49,649 - Lecturer_create initialized
+2020-01-13 11:43:58,372 - Lecturer created ,Runtime=8.72 Seconds
+2020-01-13 11:44:02,434 - student_create initialized
+2020-01-13 11:44:13,378 - Student created ,Runtime=10.94 Seconds
+2020-01-13 11:59:26,005 - Update_student initialized
+2020-01-13 11:59:37,030 - Noa dahan changed password

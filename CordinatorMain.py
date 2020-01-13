@@ -89,6 +89,8 @@ def new_question_to_course(courseList):
 
 
 def update_student_plus(studentList):
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('Update_student initialized')
     flag1 = True
     while flag1:
         name = input("Enter name\n")
@@ -97,9 +99,11 @@ def update_student_plus(studentList):
                 flag2 = input("1.Change password\n2.Change phone")
                 if flag2 == '1':
                     x.setPassword(input("Enter new password\n"))
+                    logging.info(name + ' changed password')
                     return
                 elif flag2 == '2':
                     x.setPhone(input("Enter new phone\n"))
+                    logging.info(name + ' changed phone')
                     return
         flag3 = input("Name not found Try again?(1=Y)")
         if flag3 != '1':

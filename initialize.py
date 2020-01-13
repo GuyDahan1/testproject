@@ -1,5 +1,6 @@
 """First startup of the database"""
-
+import logging
+import timeit
 from Class.CordinatorClass import cordinator
 from Class.LecturerClass import lecturer
 from Class.StudentClass import student
@@ -12,53 +13,88 @@ import PyPDF3
 
 def cordinatorCreate():
     """Function returns new cordinator"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO,filename='LOG.txt')
+    logging.info('Cordinator_create initialized')
+    start1=timeit.default_timer()
     name = input("Enter Cordinator name(Full name,First Last)\n")
     phone = input("Enter Phone number\n")
     proffesion = input("Enter proffesion\n")
     password = input("Enter Password\n")
     newCordinator = cordinator(name, phone, proffesion, password)
+    stop1=timeit.default_timer()
+    logging.info('Cordinator created ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
     return newCordinator
 
 
 def lecturerCreate():
     """Function returns new lecturer"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('Lecturer_create initialized')
+    start1 = timeit.default_timer()
     name = input("Enter Lecturer name(Full name,First Last)\n")
     phone = input("Enter Phone number\n")
     proffesion = input("Enter proffesion\n")
     password = input("Enter Password\n")
     newLecturer = lecturer(name, phone, proffesion, password)
+    stop1 = timeit.default_timer()
+    logging.info('Lecturer created ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
     return newLecturer
 
 
 def studentCreate():
     """Function returns new student"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('student_create initialized')
+    start1 = timeit.default_timer()
     name = input("Enter Student name(Full name,First Last)\n")
     phone = input("Enter Phone number\n")
     proffesion = input("Enter proffesion\n")
     password = input("Enter Password\n")
     newStudent = student(name, phone, proffesion, password)
+    stop1 = timeit.default_timer()
+    logging.info('Student created ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
     return newStudent
 
 
 def courseCreate():
     """Function returns new course"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('course_create initialized')
+    start1 = timeit.default_timer()
     name = input("Enter Course name\n")
-    year = input("Enter Course year\n")
+    while True:
+        year = input("Enter Course year\n")
+        if int(year) >=1990 & year <=2021:
+            break
+        else :
+            print("Invalid year, valid year 1990-2021")
     semester = input("Enter Course semester\n")
-    return course(name, year, semester)
+    newcourse= course(name, year, semester)
+    stop1 = timeit.default_timer()
+    logging.info('Course created ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
+    return newcourse
 
 
 def testCreate(course):
     """Function returns new test"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('test_create initialized')
+    start1 = timeit.default_timer()
     year = course.year
     semester = course.semester
     deadline = input("Enter Test deadline\n")
     Path = input("please enter test.pdf Path\n")
-    return test(year, semester, deadline,Path)
+    newtest= test(year, semester, deadline,Path)
+    stop1 = timeit.default_timer()
+    logging.info('test created ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
+    return newtest
 
 
 def questionCreate(course, test):
     """Function recives a course and test as parameters and returns new question"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
+    logging.info('question_create initialized')
+    start1 = timeit.default_timer()
     question_code = input("Enter question code\n")
     main_topic = input("Enter main topic\n")
     sub_theme = input("Enter sub topic\n")
@@ -69,7 +105,10 @@ def questionCreate(course, test):
     solution_type = input("Enter solution type\n")
     format = input("Enter question format\n")
     test_exams = input("Test/Exam\n")
-    return question(course, test, question_code, main_topic, sub_theme, difficulty, solution_type, format, test_exams,sectionCount)
+    newquestion= question(course, test, question_code, main_topic, sub_theme, difficulty, solution_type, format, test_exams,sectionCount)
+    stop1 = timeit.default_timer()
+    logging.info('question_create initialized ,Runtime='+"{0:.2f}".format(stop1-start1)+' Seconds')
+    return newquestion
 
 
 def startup(courseList, testList, questionList):
@@ -111,12 +150,6 @@ def saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList,
     cordi_counter=0
     lectur_counter=0
     student_counter=0
-    file_cordi = open("Data\Cordinators.txt",'w')
-    file_lectur = open("Data\Lecturers.txt", 'w')
-    file_student = open("Data\Students.txt", 'w')
-    cordi_counter = 0
-    lectur_counter = 0
-    student_counter = 0
     file_cordi = open("Data\Cordinators.txt", 'a')
     file_lectur = open("Data\Lecturers.txt", 'a')
     file_student = open("Data\Students.txt", 'a')
