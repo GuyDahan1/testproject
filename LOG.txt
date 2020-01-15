@@ -1,8 +1,40 @@
-2020-01-13 11:43:36,197 - Cordinator_create initialized
-2020-01-13 11:43:43,826 - Cordinator created ,Runtime=7.63 Seconds
-2020-01-13 11:43:49,649 - Lecturer_create initialized
-2020-01-13 11:43:58,372 - Lecturer created ,Runtime=8.72 Seconds
-2020-01-13 11:44:02,434 - student_create initialized
-2020-01-13 11:44:13,378 - Student created ,Runtime=10.94 Seconds
-2020-01-13 11:59:26,005 - Update_student initialized
-2020-01-13 11:59:37,030 - Noa dahan changed password
+2020-01-15 12:37:47,610 - user_create initialized
+2020-01-15 12:38:03,048 - Cordinator user:Ohad shalom created
+2020-01-15 12:38:04,616 - user_create initialized
+2020-01-15 12:38:11,358 - Cordinator user:Guy Dahan created
+2020-01-15 12:38:13,201 - course_create initialized
+2020-01-15 12:38:20,617 - Course created ,Runtime=7.42 Seconds
+2020-01-15 12:38:20,618 - test_create initialized
+2020-01-15 12:38:22,432 - test created ,Runtime=1.81 Seconds
+2020-01-15 12:38:24,035 - question_create initialized
+2020-01-15 12:38:39,236 - question_create initialized ,Runtime=15.20 Seconds
+2020-01-15 12:38:49,426 - course_create initialized
+2020-01-15 12:39:53,303 - Course created ,Runtime=63.88 Seconds
+2020-01-15 12:41:20,566 - user_create initialized
+2020-01-15 12:42:12,232 - course_create initialized
+2020-01-15 12:42:57,457 - course_create initialized
+2020-01-15 12:46:20,616 - course_create initialized
+2020-01-15 12:47:34,002 - course_create initialized
+2020-01-15 12:47:38,060 - course_create initialized
+2020-01-15 12:47:57,091 - Course created ,Runtime=19.03 Seconds
+2020-01-15 12:47:57,091 - test_create initialized
+2020-01-15 12:47:59,984 - test created ,Runtime=2.89 Seconds
+2020-01-15 12:48:02,817 - question_create initialized
+2020-01-15 12:48:16,368 - question_create initialized
+2020-01-15 12:48:31,748 - test_create initialized
+2020-01-15 12:48:35,391 - test created ,Runtime=3.64 Seconds
+2020-01-15 13:47:53,830 - course_create initialized
+2020-01-15 13:50:01,519 - Course created ,Runtime=127.66 Seconds
+2020-01-15 13:50:01,519 - test_create initialized
+2020-01-15 13:50:03,939 - test created ,Runtime=2.42 Seconds
+2020-01-15 13:50:05,534 - question_create initialized
+2020-01-15 13:50:13,905 - question_create initialized ,Runtime=8.37 Seconds
+2020-01-15 13:50:22,240 - course_create initialized
+2020-01-15 13:51:47,470 - course_create initialized
+2020-01-15 13:52:03,470 - course_create initialized
+2020-01-15 13:52:08,775 - course_create initialized
+2020-01-15 13:52:17,177 - Course created ,Runtime=8.40 Seconds
+2020-01-15 13:52:17,177 - test_create initialized
+2020-01-15 13:52:19,156 - test created ,Runtime=1.98 Seconds
+2020-01-15 13:52:20,903 - question_create initialized
+2020-01-15 13:55:26,384 - course_create initialized

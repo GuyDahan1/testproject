@@ -1,13 +1,25 @@
 import PyPDF3
+import logging
 import pdf2image
 import docx
 
 
 class test:
-    def __init__(self, yr, seme, ddl, Path):
+    def __init__(self, yr, seme, ddl,path=None):
         self.year = yr
         self.semester = seme
         self.deadline = ddl
+        self.tPdf = None
+        self.path = path
+        self.is_cropped=False
+        #self.image = pdf2image.convert_from_path(Path)
+
+    def getPdf(self):
+        return self.tPdf
+
+    def getPath(self):
+        return self.path
+    def croptime(self,Path):
         while True:
             try:
                 TestPdf = PyPDF3.PdfFileReader(Path, "rb")
@@ -17,13 +29,10 @@ class test:
                 Path = input("Enter new path\n")
         self.tPdf = TestPdf
         self.path = Path
-        #self.image = pdf2image.convert_from_path(Path)
-
-    def getPdf(self):
-        return self.tPdf
-
-    def getPath(self):
-        return self.path
+        self.is_cropped=True
+        logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO,
+                            filename='LOG.txt')  # Writing to log file
+        logging.info('Test pdf attached')  # Writing to log file
 
     def __crop__(self,name):
         pagNum = int(input("Enter page number\n"))

@@ -19,6 +19,7 @@ def imp_cor(corlist):
 
 
 def imp_lecturers(leclist):
+    """Importing Lecturer from txt file in the agreed format"""
     lec_file = open("Data\Lecturers.txt", 'r')
     for i in lec_file:
         temp = i.split()
@@ -27,6 +28,7 @@ def imp_lecturers(leclist):
 
 
 def imp_students(stdlist):
+    """Importing Students from txt file in the agreed format"""
     std_file = open("Data\Students.txt", 'r')
     for i in std_file:
         temp = i.split()
@@ -35,6 +37,7 @@ def imp_students(stdlist):
 
 
 def imp_courses(courlist):
+    """Importing Courses from txt file in the agreed format"""
     course_file = open("Data\Courses.txt", 'r')
     for i in course_file:
         temp = i.split()
@@ -43,8 +46,7 @@ def imp_courses(courlist):
 
 
 def imp_q(qlist):
-    q_file=open("Data\Questions.txt",'r')
-    q_file = open("Data\Students.txt", 'r')
+    """Importing Questions from txt file in the agreed format"""
     q_file = open("Data\Questions.txt", 'r')
     for i in q_file:
         temp = i.split()
@@ -59,6 +61,7 @@ def imp_q(qlist):
 
 
 def print_cordinator_menu():
+    """Printing current Menu"""
     print("""Cordinator Menu:
     1.Add new course
     2.Add new question to an existing course
@@ -72,6 +75,7 @@ def print_cordinator_menu():
 
 
 def new_question_to_course(courseList):
+    """Function will add a new question to an existing course"""
     flag1 = True
     while flag1:
         name = input("Enter course name\n")
@@ -79,8 +83,9 @@ def new_question_to_course(courseList):
             if name == x.getName():
                 newtest = testCreate(x)
                 newQ=questionCreate(x, newtest)
-                newtest.__crop__(newQ.getCode())
-                newQ.setPdf()
+                if newtest.is_cropped():
+                    newtest.__crop__(newQ.getCode())
+                    newQ.setPdf()
                 return newQ
         print("Wrong course name\n")
         ff = input("To try again enter 1")
@@ -89,8 +94,10 @@ def new_question_to_course(courseList):
 
 
 def update_student_plus(studentList):
-    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')
-    logging.info('Update_student initialized')
+    """Function will recive a list (student\lecturer\cordinator)
+    and will update the requested user password or phone"""
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='LOG.txt')#Writing to log file
+    logging.info('Update_student initialized')#Writing to log file
     flag1 = True
     while flag1:
         name = input("Enter name\n")
@@ -99,17 +106,17 @@ def update_student_plus(studentList):
                 flag2 = input("1.Change password\n2.Change phone")
                 if flag2 == '1':
                     x.setPassword(input("Enter new password\n"))
-                    logging.info(name + ' changed password')
+                    logging.info(name + ' changed password')#Writing to log file
                     return
                 elif flag2 == '2':
                     x.setPhone(input("Enter new phone\n"))
-                    logging.info(name + ' changed phone')
+                    logging.info(name + ' changed phone')#Writing to log file
                     return
         flag3 = input("Name not found Try again?(1=Y)")
         if flag3 != '1':
             flag1 = False
 
-
+############MAIN START###########
 config_file = open("Config.txt", 'r')
 config_info = config_file.readline().split()
 # 0-initialized 1-Cordinator counter 2-Lecturer counter 3-Student counter 4-Courses counter 5-Question counter
@@ -146,7 +153,7 @@ while flag1:
     print_cordinator_menu()
     flag2 = input()
     if flag2 == '1':
-        courseList.append(courseCreate())
+        startup(courseList, testList, questionList)
     elif flag2 == '2':
         questionList.append(new_question_to_course(courseList))
     elif flag2 == '3':
@@ -156,11 +163,17 @@ while flag1:
     elif flag2 == '5':
         update_student_plus(studentList)
     elif flag2 == '6':
-        cordinatorList.append(cordinatorCreate())
+        temp = user_create(1, cordinatorList)
+        if temp:
+            cordinatorList.append(temp)
     elif flag2 == '7':
-        lecturerList.append(lecturerCreate())
+        temp = user_create(2, lecturerList)
+        if temp:
+            lecturerList.append(temp)
     elif flag2 == '8':
-        studentList.append(studentCreate())
+        temp = user_create(3, studentList)
+        if temp:
+            studentList.append(temp)
     elif flag2 == '9':
         saveToFiles(cordinatorList, lecturerList, studentList, courseList, testList, questionList)
         flag1 = False
